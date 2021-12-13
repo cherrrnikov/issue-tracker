@@ -8,6 +8,47 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
+        <div class="container">
+            <h1 class="main-title">
+                JS IssueTracker <small>by Igor Chernikov</small>
+            </h1>
+            <div class="tracker">
+                <h2 class="tracker-title">Create New Issue:</h2>
+                <form id="issueForm">
+                    <div class="form-group">
+                        <label for="issueDescInput">Description</label>
+                        <input
+                            type="text"
+                            id="issueDescInput"
+                            class="form-group__input"
+                            placeholder="Describe the issue"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="issueSeverityInput">Severity</label>
+                        <select
+                            id="issueSeverityInput"
+                            class="form-group__input"
+                        >
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="issueAssignedToInput">Assigned To</label>
+                        <input
+                            type="text"
+                            id="issueAssignedToInput"
+                            class="form-group__input"
+                            placeholder="Enter responsible"
+                        />
+                    </div>
+                    <button type="submit" id="issueSubmitForm">Add</button>
+                </form>
+            </div>
+            <div id="issueList"></div>
+        </div>
         <script src="js/tracker.js"></script>
     </body>
 </html>
