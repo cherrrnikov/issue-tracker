@@ -28,8 +28,8 @@ const createIssue = function () {
                     ${assignedTo}
                 </span>
             </p>
-            <a href="#">Close</a>
-            <a href="#">Delete</a>
+            <a href="#" onclick="setStatusClosed('${id}')">Close</a>
+            <a href="#" onclick="deleteIssue('${id}')">Delete</a>
         </div>
         `;
     }
@@ -64,6 +64,31 @@ const saveIssue = function (e) {
     document.getElementById("issueForm").reset();
     createIssue();
     e.preventDefault();
+};
+
+const setStatusClosed = function (id) {
+    let issues = JSON.parse(localStorage.getItem("issues"));
+
+    for (let i = 0; i < issues.length; i++) {
+        if (issues[i].id === id) {
+            issues[i].status = "Closed";
+        }
+    }
+
+    localStorage.setItem("issues", JSON.stringify(issues));
+    createIssue();
+};
+const deleteIssue = function (id) {
+    let issues = JSON.parse(localStorage.getItem("issues"));
+
+    for (let i = 0; i < issues.length; i++) {
+        if (issues[i].id === id) {
+            issues.splice(i, 1);
+        }
+    }
+
+    localStorage.setItem("issues", JSON.stringify(issues));
+    createIssue();
 };
 
 document.getElementById("issueForm").addEventListener("submit", saveIssue);
