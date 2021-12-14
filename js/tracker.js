@@ -12,24 +12,24 @@ const createIssue = function () {
             status = issues[i].status;
 
         issuesList.innerHTML += `
-        <div>
-            <h6>Issue ID: ${id}</h6>
-            <p>
+        <div class="issue">
+            <h6 class="issue-id">Issue ID: ${id}</h6>
+            <p class="issue-status">
                 <span>${status}</span>
             </p>
-            <h3>${description}</h3>
-            <p>
+            <h3 class="issue-description">${description}</h3>
+            <p class="issue-severity">
                 <span>
                     ${severity}
                 </span>
             </p>
-            <p>
+            <p class="issue-assigned">
                 <span>
                     ${assignedTo}
                 </span>
             </p>
-            <a href="#" onclick="setStatusClosed('${id}')">Close</a>
-            <a href="#" onclick="deleteIssue('${id}')">Delete</a>
+            <button id="closedStatus" onclick="setStatusClosed('${id}')" class="issue-btn">Close</button>
+            <button id="deleteIssue" onclick="deleteIssue('${id}')" class="issue-btn">Delete</button>
         </div>
         `;
     }
